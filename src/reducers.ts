@@ -1,6 +1,5 @@
-///<reference path = "../typings/immutable/immutable.d.ts";
-
-import Immutable from 'immutable';
+///<reference path='../typings/immutable/immutable.d.ts'/>
+import * as Immutable from 'immutable';
 import {shop} from './models/shop.ts';
 import {actionType} from './models/action.ts';
 
@@ -37,21 +36,24 @@ const initialState : shop = Immutable.fromJS(
         ]
     });
 
-export function rootReducer(state:product = initialState, action:actionType) {
-    switch (action.type) {
-
+export function rootReducer(state:shop = initialState, action) {
+    
+   switch(action.type){
+       
         case "ADD_TO_CART":
-            state.updateIn(['cartList'], cartList => cartList.push(action.product));
-            state.updateIn(['productList'], productList => {
-                productList.map(product => {
+            state = state.updateIn(['cartList'], cartList => cartList.push(action.product));
+            state = state.updateIn(['productList'], productList => {
+                return productList.map(product => {
                     if(action.product.get("id") ==  product.get("id")){
-                        return product.update("availability", value => value-1);
-                    }
+                       return product.update("availability", value => value-1);
+                    } else
+                        return product;
                 });
             });
             return state;
+
         case "REMOVE_FROM_CART":
-            //return state.updateIn(['cartList'], cartList =>cartList.slice(action.id));
+            return state.updateIn(['cartList'], cartList => cartList.slice(action.index, action.index));
 
         default:
             return state;

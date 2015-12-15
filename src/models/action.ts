@@ -1,4 +1,4 @@
-export type ActionType = {
+export type actionType = {
     addToCart?: Function;
     removeFromCart?: Function;
 };

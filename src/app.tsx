@@ -9,27 +9,37 @@ import { connect } from 'react-redux';
 import Cart from './components/cart.tsx';
 import Product from './components/products.tsx';
 import TodoActions from './actions.ts';
+import {cartItemType} from './models/cartitem.ts';
+import {productType} from './models/shop.ts';
+import {actionType} from './models/action.ts';
+import {shop} from './models/shop.ts';
 
-export default class App extends React.Component{
+
+interface AppProps{
+    data:shop;
+    actions:actionType;
+}
+
+export default class App extends React.Component<AppProps, any>{
     constructor() {
         super();
     }
 
     render(){
         let {data, actions} = this.props;
-        let cartList = data.get("cartList");
-        let productList = data.get("productList");
-        console.log("this.props", data, actions);
-        let productListElements = productList.map((product, index) => (
+        let cartList:cartItemType[] = data.get("cartList");
+        let productList:productType[] = data.get("productList");
+        let productListElements = productList.map((product:productType, index:number) => (
                 <Product
                     handleClick = {actions.addToCart}
                     data = {product}
                 />
         ));
-        let cartListElements = cartList.map((cartItem, index) => (
+        let cartListElements = cartList.map((cartItem:cartItemType, index:number) => (
             <Cart
                 handleClick = {actions.removeFromCart}
                 data = {cartItem}
+                index = {index}
             />
             ));
 

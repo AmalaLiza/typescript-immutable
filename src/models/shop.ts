@@ -1,12 +1,12 @@
-import cartItem from './cartitem.ts';
-
-export type product = {
-    id:number,
-    name:string,
-    availability:number
+import {cartItemType} from './cartitem.ts';
+import * as Immutable from 'immutable';
+export type productType = {
+    id:number;
+    name:string;
+    availability:number;
 }
 
 export type shop = {
-    cartList: cartItem[],
-    productList:product[]
+    cartList: cartItemType[];
+    productList: productType[];
 }

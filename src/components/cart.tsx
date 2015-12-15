@@ -2,24 +2,32 @@
 /// <reference path="../../typings/react/react.d.ts" />
 
 import * as React from 'react';
+import {cartItemType} from '../models/cartitem.ts';
 
-export default class Cart extends React.Component<any, any>{
 
-    handleClick(cartItem){
-        this.props.handleClick(cartItem);
+interface CartProps {
+    data : cartItemType;
+    index : number;
+    handleClick : Function;
+}
+
+export default class Cart extends React.Component<CartProps, any>{
+
+    handleClick(e, cartItem){
+        console.log("handleClick", e);
+        this.props.handleClick(cartItem, this.props.index);
     }
 
     render(){
-        console.log("this.props cartItem", this.props);
-        let cartItem = this.props.data;
+        let cartItem:cartItemType = this.props.data;
         return <div className = "sub-section">
             <div>
-                {cartItem.get('name')}
+                Item Name : {cartItem.get('name')}
             </div>
             <div>
                 Quantity: {cartItem.get('quantity')}
             </div>
-            <a className="primary-button" onClick = {this.handleClick(cartItem)}>Remove From Cart</a>
+            <a className="primary-button" onClick={(event) => {this.handleClick(event, cartItem)}}>Remove From Cart</a>
         </div>
     }
 };

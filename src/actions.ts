@@ -1,12 +1,15 @@
-export default {
+import {cartItemType} from './models/cartitem.ts';
+import {productType} from './models/shop.ts';
 
-    addToCart(product){
+export default {
+        
+    addToCart(product:productType){
         console.log(product)
         return {type: 'ADD_TO_CART', product};
     },
 
-    removeFromCart(id){
-        return {type: 'REMOVE_FROM_CART', id};
+    removeFromCart(cartItem:cartItemType, index:number){
+        return {type: 'REMOVE_FROM_CART', cartItem, index};
     }
 
 }
