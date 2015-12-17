@@ -39,12 +39,9 @@ const initialState = Immutable.fromJS({
 function rootReducer(state = initialState, action) {
     switch (action.type) {
         case "ADD_TO_CART":
-            let itemindex = state.get('cartList').
-                findIndex((cartItem) => action.product.get("id") == cartItem.get("id"));
-            if (itemindex >= 0) {
-                state = state.updateIn(['cartList'], cartList => {
-                    return cartList.update(itemindex, (cartItem) => cartItem.update("quantity", value => value + 1));
-                });
+            let item_index = state.get('cartList').findIndex((cartItem) => action.product.get("id") == cartItem.get("id"));
+            if (item_index >= 0) {
+                state = state.updateIn(['cartList'], cartList => cartList.update(item_index, (cartItem) => cartItem.update("quantity", value => value + 1)));
             }
             else {
                 let newCartItem = Immutable.fromJS({
@@ -54,20 +51,16 @@ function rootReducer(state = initialState, action) {
                 });
                 state = state.updateIn(['cartList'], cartList => cartList.push(newCartItem));
             }
-            let productIndex = state.get('productList').
-                findIndex((product) => action.product.get("id") == product.get("id"));
+            let productIndex = state.get('productList').findIndex((product) => action.product.get("id") == product.get("id"));
             if (productIndex >= 0) {
-                state = state.updateIn(['productList'], productList => {
-                    return productList.update(productIndex, (product) => product.update("availability", value => value + 1));
-                });
+                state = state.updateIn(['productList'], productList => productList.update(productIndex, (product) => product.update("availability", value => value - 1)));
             }
             return state;
         case "REMOVE_FROM_CART":
-            let itemIndex = state.get('productList').
-                findIndex((product) => action.cartItem.get("id") == product.get("id"));
+            let itemIndex = state.get('productList').findIndex((product) => action.cartItem.get("id") == product.get("id"));
             if (itemIndex >= 0) {
                 state = state.updateIn(['productList'], productList => {
-                    return productList.update(itemIndex, (product) => product.update("availability", value => value + 1));
+                    return productList.update(itemIndex, (product) => product.update("availability", value => value + action.cartItem.get("quantity")));
                 });
             }
             else {

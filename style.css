@@ -43,18 +43,22 @@ h1.heading{
 }
 
 
-a.primary-button {
+button.primary-button {
     color: rgb(0, 128, 230);
     font-size: 17px;
     padding: 8px 15px;
     font-weight: 600;
     display: inline-block;
     margin: 7px;
-    border-radius: 2px;
+    border-radius: 7px;
     transition: 0.23s all ease-out;
     cursor: pointer;
     background: #4C9ABF;
     color: #fff;
+}
+
+button:disabled{
+    background: #637881;
 }
 
 .sub-section{

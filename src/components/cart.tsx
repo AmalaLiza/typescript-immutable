@@ -26,7 +26,7 @@ export default class Cart extends React.Component<CartProps, any> {
             <div>
                 Quantity: {cartItem.get('quantity')}
             </div>
-            <a className="primary-button" onClick={() => {this.handleClick(cartItem)}}>Remove From Cart</a>
+            <button  className="primary-button" onClick={() => {this.handleClick(cartItem)}}>Remove From Cart</button>
         </div>
     }
 };

@@ -24,9 +24,9 @@ export default class Product extends React.Component<ProductProps, any> {
                 Name: {product.get('name')}
             </div>
             <div>
-                Only {product.get('availability')} in Stock.
+                {product.get('availability')<= 0? "Out of Stock.":"Only "+ product.get('availability') +" in Stock"}
                 <br></br>
-                <a className="primary-button" onClick={(e) => this.handleClick(e, product)}>Add To Cart</a>
+                <button className="primary-button" disabled={!product.get('availability')? true:false} onClick={(e) => this.handleClick(e, product)}>Add To Cart</button>
             </div>
         </div>
     }
