@@ -2,13 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bc5dd805-a50e-4410-a125-80bd5501b6a6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/cart.js" afterPath="$PROJECT_DIR$/src/components/cart.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/cart.js.map" afterPath="$PROJECT_DIR$/src/components/cart.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/cart.tsx" afterPath="$PROJECT_DIR$/src/components/cart.tsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/products.js" afterPath="$PROJECT_DIR$/src/components/products.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/products.js.map" afterPath="$PROJECT_DIR$/src/components/products.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/products.tsx" afterPath="$PROJECT_DIR$/src/components/products.tsx" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/actions.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/actions.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/cart.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/cart.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/products.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/products.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/index.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/models/action.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/models/action.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/models/cartitem.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/models/cartitem.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/models/shop.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/models/shop.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/reducers.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/reducers.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/store.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/store.js.map" afterPath="" />
     </list>
     <ignored path="typescript-immutable.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -246,6 +259,9 @@
     </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="bc5dd805-a50e-4410-a125-80bd5501b6a6" name="Default" comment="" />
@@ -278,6 +294,14 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
     </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
