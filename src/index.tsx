@@ -13,7 +13,7 @@ import App from './app.tsx';
 const store = configureStore();
 
 render(
-    <Provider store = {store}>
+    <Provider store={store}>
         <App/>
     </Provider>,
     document.getElementById('root')

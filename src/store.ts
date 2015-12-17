@@ -6,6 +6,6 @@ import { rootReducer } from './reducers.ts';
 
 const finalCreateStore = compose()(createStore);
 
-export default function configureStore () {
+export default function configureStore() {
     return finalCreateStore(rootReducer);
 }

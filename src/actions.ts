@@ -2,9 +2,8 @@ import {cartItemType} from './models/cartitem.ts';
 import {productType} from './models/shop.ts';
 
 export default {
-        
+
     addToCart(product:productType){
-        console.log(product)
         return {type: 'ADD_TO_CART', product};
     },
 

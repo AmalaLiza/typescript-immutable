@@ -15,37 +15,37 @@ import {actionType} from './models/action.ts';
 import {shop} from './models/shop.ts';
 
 
-interface AppProps{
-    data:shop;
-    actions:actionType;
+interface AppProps {
+    data: shop;
+    actions: actionType;
 }
 
-export default class App extends React.Component<AppProps, any>{
+export default class App extends React.Component<AppProps, any> {
     constructor() {
         super();
     }
 
-    render(){
+    render() {
         let {data, actions} = this.props;
         let cartList:cartItemType[] = data.get("cartList");
         let productList:productType[] = data.get("productList");
         let productListElements = productList.map((product:productType, index:number) => (
-                <Product
-                    handleClick = {actions.addToCart}
-                    data = {product}
-                />
+            <Product
+                handleClick={actions.addToCart}
+                data={product}
+            />
         ));
         let cartListElements = cartList.map((cartItem:cartItemType, index:number) => (
             <Cart
-                handleClick = {actions.removeFromCart}
-                data = {cartItem}
-                index = {index}
+                handleClick={actions.removeFromCart}
+                data={cartItem}
+                index={index}
             />
-            ));
+        ));
 
         return <div>
             <div>
-                <h1 className="heading"> Shop Stop!</h1>
+                <h1 className="heading">Shop Stop!</h1>
             </div>
             <div className="left-section">
                 <h1 className="section-header">Products Available</h1>
@@ -64,11 +64,11 @@ export default class App extends React.Component<AppProps, any>{
 }
 
 function mapStateToProps(state) {
-    return { data: state };
+    return {data: state};
 }
 
 function mapDispatchToProps(dispatch) {
-    return { actions: bindActionCreators(TodoActions, dispatch) };
+    return {actions: bindActionCreators(TodoActions, dispatch)};
 }
 
 export default connect(
