@@ -14,7 +14,6 @@ import {productType} from './models/shop.ts';
 import {actionType} from './models/action.ts';
 import {shop} from './models/shop.ts';
 
-
 interface AppProps {
     data: shop;
     actions: actionType;

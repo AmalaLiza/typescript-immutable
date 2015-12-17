@@ -7,7 +7,7 @@ class Cart extends React.Component {
     }
     render() {
         let cartItem = this.props.data;
-        return React.createElement("div", {"className": "sub-section"}, React.createElement("div", null, "Item Name : ", cartItem.get('name')), React.createElement("div", null, "Quantity: ", cartItem.get('quantity')), React.createElement("a", {"className": "primary-button", "onClick": (event) => { this.handleClick(cartItem); }}, "Remove From Cart"));
+        return React.createElement("div", {"className": "sub-section"}, React.createElement("div", null, "Item Name : ", cartItem.get('name')), React.createElement("div", null, "Quantity: ", cartItem.get('quantity')), React.createElement("a", {"className": "primary-button", "onClick": () => { this.handleClick(cartItem); }}, "Remove From Cart"));
     }
 }
 exports.Cart = Cart;

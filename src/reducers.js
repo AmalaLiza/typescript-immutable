@@ -39,17 +39,11 @@ const initialState = Immutable.fromJS({
 function rootReducer(state = initialState, action) {
     switch (action.type) {
         case "ADD_TO_CART":
-            let itemID = state.get('cartList').
+            let itemindex = state.get('cartList').
                 findIndex((cartItem) => action.product.get("id") == cartItem.get("id"));
-            if (itemID >= 0) {
+            if (itemindex >= 0) {
                 state = state.updateIn(['cartList'], cartList => {
-                    return cartList.map(cartItem => {
-                        if (action.product.get("id") == cartItem.get("id")) {
-                            return cartItem.update("quantity", value => value + 1);
-                        }
-                        else
-                            return cartItem;
-                    });
+                    return cartList.update(itemindex, (cartItem) => cartItem.update("quantity", value => value + 1));
                 });
             }
             else {
@@ -60,37 +54,29 @@ function rootReducer(state = initialState, action) {
                 });
                 state = state.updateIn(['cartList'], cartList => cartList.push(newCartItem));
             }
-            state = state.updateIn(['productList'], productList => {
-                return productList.map(product => {
-                    if (action.product.get("id") == product.get("id")) {
-                        return product.update("availability", value => value - 1);
-                    }
-                    else
-                        return product;
+            let productIndex = state.get('productList').
+                findIndex((product) => action.product.get("id") == product.get("id"));
+            if (productIndex >= 0) {
+                state = state.updateIn(['productList'], productList => {
+                    return productList.update(productIndex, (product) => product.update("availability", value => value + 1));
                 });
-            });
+            }
             return state;
         case "REMOVE_FROM_CART":
             let itemIndex = state.get('productList').
                 findIndex((product) => action.cartItem.get("id") == product.get("id"));
             if (itemIndex >= 0) {
                 state = state.updateIn(['productList'], productList => {
-                    return productList.map(product => {
-                        if (action.cartItem.get("id") == product.get("id")) {
-                            return product.update("availability", value => value + 1);
-                        }
-                        else
-                            return product;
-                    });
+                    return productList.update(itemIndex, (product) => product.update("availability", value => value + 1));
                 });
             }
             else {
-                let backToproductList = Immutable.fromJS({
+                let removedPdt = Immutable.fromJS({
                     id: action.cartItem.get("id"),
                     name: action.cartItem.get("name"),
                     availability: 1
                 });
-                state = state.updateIn(['productList'], productList => productList.push(backToproductList));
+                state = state.updateIn(['productList'], productList => productList.push(removedPdt));
             }
             state = state.updateIn(['cartList'], cartList => cartList.filter((cartItem) => action.cartItem.get("id") != cartItem.get("id")));
             return state;
