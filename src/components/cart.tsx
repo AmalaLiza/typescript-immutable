@@ -6,8 +6,8 @@ import {cartItemType} from '../models/cartitem.ts';
 
 
 interface CartProps {
-    data: cartItemType;
     index: number;
+    data: cartItemType;
     handleClick: Function;
 }
 
@@ -26,7 +26,7 @@ export default class Cart extends React.Component<CartProps, any> {
             <div>
                 Quantity: {cartItem.get('quantity')}
             </div>
-            <button  className="primary-button" onClick={() => {this.handleClick(cartItem)}}>Remove From Cart</button>
+            <button className="primary-button" onClick={() => {this.handleClick(cartItem)}}>Remove From Cart</button>
         </div>
     }
 };

@@ -3,8 +3,8 @@ import * as React from 'react';
 import {productType} from "../models/shop.ts";
 
 interface ProductProps {
-    data: productType;
     index: number;
+    data: productType;
     handleClick: Function;
 }
 
@@ -13,7 +13,7 @@ export default class Product extends React.Component<ProductProps, any> {
         super(props, context);
     }
 
-    handleClick(event, product) {
+    handleClick(product:productType) {
         this.props.handleClick(product);
     }
 
@@ -26,7 +26,9 @@ export default class Product extends React.Component<ProductProps, any> {
             <div>
                 {product.get('availability')<= 0? "Out of Stock.":"Only "+ product.get('availability') +" in Stock"}
                 <br></br>
-                <button className="primary-button" disabled={!product.get('availability')? true:false} onClick={(e) => this.handleClick(e, product)}>Add To Cart</button>
+                <button className="primary-button" disabled={!product.get('availability')? true:false}
+                        onClick={() => this.handleClick(product)}>Add To Cart
+                </button>
             </div>
         </div>
     }
