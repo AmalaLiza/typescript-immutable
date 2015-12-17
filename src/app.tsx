@@ -55,7 +55,7 @@ export default class App extends React.Component<AppProps, any> {
             <div className="right-section">
                 <h1 className="section-header">Items in cart</h1>
                 <div>
-                    {cartListElements}
+                    {cartList.length? cartListElements : `No items in your cart.`}
                 </div>
             </div>
         </div>
