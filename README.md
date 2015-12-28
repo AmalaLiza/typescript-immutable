@@ -1,1 +1,3 @@
 # typescript-immutable
+
+npm install
